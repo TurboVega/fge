@@ -1,0 +1,29 @@
+// File: fge.h
+// Purpose: Header file for FGE functions
+// Copyright (C) 2025 by Curtis Whitley.
+//
+// Free for use, but at your own risk. Nothing guaranteed!
+
+#ifndef fge_h
+#define fge_h
+
+#include "fge_app.h"
+#include "fge_bitmap.h"
+#include "fge_color.h"
+#include "fge_dir.h"
+#include "fge_file.h"
+#include "fge_hal.h"
+#include "fge_key.h"
+#include "fge_line.h"
+#include "fge_mouse.h"
+#include "fge_pixel.h"
+#include "fge_shape.h"
+#include "fge_sound.h"
+#include "fge_sprite.h"
+#include "fge_system.h"
+#include "fge_text.h"
+
+void fge_initialize();
+void fge_uninitialize();
+
+#endif // fge_h
