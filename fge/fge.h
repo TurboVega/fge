@@ -13,15 +13,21 @@
 #include "fge_dir.h"
 #include "fge_file.h"
 #include "fge_hal.h"
+#include "fge_joystick.h"
 #include "fge_key.h"
 #include "fge_line.h"
+#include "fge_memory.h"
 #include "fge_mouse.h"
+#include "fge_msg.h"
 #include "fge_pixel.h"
 #include "fge_shape.h"
 #include "fge_sound.h"
 #include "fge_sprite.h"
 #include "fge_system.h"
+#include "fge_task.h"
 #include "fge_text.h"
+#include "fge_tile.h"
+#include "fge_timer.h"
 
 void fge_initialize();
 void fge_uninitialize();

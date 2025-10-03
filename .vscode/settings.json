@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "fge_hal.h": "c",
+        "fge_joystick.h": "c",
+        "fge.h": "c"
+    }
+}
