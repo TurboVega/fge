@@ -72,3 +72,7 @@ void fge_initialize() {
     fge_mouse(initialize);
     ...
 ```
+
+This particular function has no parameters, but if there were some, they would follow the word "initialize" in the call,
+separated by the proper commas.
+
