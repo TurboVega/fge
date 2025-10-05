@@ -10,6 +10,7 @@ void fge_initialize() {
     fge_hal(initialize);
     fge_memory(initialize);
     fge_system(initialize);
+    fge_math(initialize);
     fge_msg(initialize);
     fge_timer(initialize);
     fge_task(initialize);
@@ -27,11 +28,14 @@ void fge_initialize() {
     fge_bitmap(initialize);
     fge_tile(initialize);
     fge_sprite(initialize);
+    fge_hit(initialize);
+    fge_path(initialize);
     fge_app(initialize);
 }
 
 void fge_uninitialize() {
     fge_app(uninitialize);
+    fge_hit(uninitialize);
     fge_sprite(uninitialize);
     fge_tile(uninitialize);
     fge_bitmap(uninitialize);
@@ -49,7 +53,9 @@ void fge_uninitialize() {
     fge_task(initialize);
     fge_timer(initialize);
     fge_msg(initialize);
+    fge_math(uninitialize);
     fge_system(uninitialize);
     fge_memory(uninitialize);
+    fge_path(uninitialize);
     fge_hal(uninitialize);
 }
