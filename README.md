@@ -10,7 +10,7 @@ care about that fact.
 ## Theory of FGE Function Calls
 
 FGE functions are divided into <i>subsystems</i>, such as <b>sound</b>, <b>mouse</b>, and
-<sprite>. Each subsystem has its own set of functions, but <b>all</b> subsystems have at
+<b>sprite</b>. Each subsystem has its own set of functions, but <b>all</b> subsystems have at
 least two common functions: <i>initialize</i> and <i>uninitialize</i>. This makes it
 possible for FGE to do any specialized setup or teardown for each subsystem. These functions
 are also used as examples of the calling mechanism.
