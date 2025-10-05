@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_text
-#define fge_text
+#ifndef _fge_text
+#define _fge_text
 
-void fge_text_initialize();
-void fge_text_uninitialize();
+typedef void (*text_initialize)();
+typedef void (*text_uninitialize)();
 
-#endif // fge_text
+typedef struct {
+    text_initialize          initialize;
+    text_uninitialize        uninitialize;
+} fge_fcns_text;
+
+extern fge_fcns_text fcns_text;
+
+#define fge_text(fge_function, ...)   (*fcns_text.fge_function)(__VA_ARGS__);
+
+#endif // _fge_text

@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_tile
-#define fge_tile
+#ifndef _fge_tile
+#define _fge_tile
 
-void fge_tile_initialize();
-void fge_tile_uninitialize();
+typedef void (*tile_initialize)();
+typedef void (*tile_uninitialize)();
 
-#endif // fge_tile
+typedef struct {
+    tile_initialize          initialize;
+    tile_uninitialize        uninitialize;
+} fge_fcns_tile;
+
+extern fge_fcns_tile fcns_tile;
+
+#define fge_tile(fge_function, ...)   (*fcns_tile.fge_function)(__VA_ARGS__);
+
+#endif // _fge_tile

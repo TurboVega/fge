@@ -11,3 +11,8 @@ void fge_text_initialize() {
 
 void fge_text_uninitialize() {
 }
+
+fge_fcns_text fcns_text = {
+    fge_text_initialize,
+    fge_text_uninitialize
+};

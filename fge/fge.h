@@ -4,8 +4,8 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_h
-#define fge_h
+#ifndef _fge_h
+#define _fge_h
 
 #include "fge_app.h"
 #include "fge_bitmap.h"
@@ -13,12 +13,15 @@
 #include "fge_dir.h"
 #include "fge_file.h"
 #include "fge_hal.h"
+#include "fge_hit.h"
 #include "fge_joystick.h"
 #include "fge_key.h"
 #include "fge_line.h"
+#include "fge_math.h"
 #include "fge_memory.h"
 #include "fge_mouse.h"
 #include "fge_msg.h"
+#include "fge_path.h"
 #include "fge_pixel.h"
 #include "fge_shape.h"
 #include "fge_sound.h"
@@ -32,4 +35,4 @@
 void fge_initialize();
 void fge_uninitialize();
 
-#endif // fge_h
+#endif // _fge_h

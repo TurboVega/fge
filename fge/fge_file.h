@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_file
-#define fge_file
+#ifndef _fge_file
+#define _fge_file
 
-void fge_file_initialize();
-void fge_file_uninitialize();
+typedef void (*file_initialize)();
+typedef void (*file_uninitialize)();
 
-#endif // fge_file
+typedef struct {
+    file_initialize          initialize;
+    file_uninitialize        uninitialize;
+} fge_fcns_file;
+
+extern fge_fcns_file fcns_file;
+
+#define fge_file(fge_function, ...)   (*fcns_file.fge_function)(__VA_ARGS__);
+
+#endif // _fge_file

@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_task
-#define fge_task
+#ifndef _fge_task
+#define _fge_task
 
-void fge_task_initialize();
-void fge_task_uninitialize();
+typedef void (*task_initialize)();
+typedef void (*task_uninitialize)();
 
-#endif // fge_task
+typedef struct {
+    task_initialize          initialize;
+    task_uninitialize        uninitialize;
+} fge_fcns_task;
+
+extern fge_fcns_task fcns_task;
+
+#define fge_task(fge_function, ...)   (*fcns_task.fge_function)(__VA_ARGS__);
+
+#endif // _fge_task

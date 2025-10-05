@@ -11,3 +11,8 @@ void fge_file_initialize() {
 
 void fge_file_uninitialize() {
 }
+
+fge_fcns_file fcns_file  ={
+    fge_file_initialize,
+    fge_file_uninitialize
+};

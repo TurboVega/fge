@@ -11,3 +11,8 @@ void fge_color_initialize() {
 
 void fge_color_uninitialize() {
 }
+
+fge_fcns_color fcns_color = {
+    fge_color_initialize,
+    fge_color_uninitialize
+};

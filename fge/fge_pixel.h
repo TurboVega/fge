@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_pixel
-#define fge_pixel
+#ifndef _fge_pixel
+#define _fge_pixel
 
-void fge_pixel_initialize();
-void fge_pixel_uninitialize();
+typedef void (*pixel_initialize)();
+typedef void (*pixel_uninitialize)();
 
-#endif // fge_pixel
+typedef struct {
+    pixel_initialize          initialize;
+    pixel_uninitialize        uninitialize;
+} fge_fcns_pixel;
+
+extern fge_fcns_pixel fcns_pixel;
+
+#define fge_pixel(fge_function, ...)   (*fcns_pixel.fge_function)(__VA_ARGS__);
+
+#endif // _fge_pixel

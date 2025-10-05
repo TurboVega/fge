@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_joystick
-#define fge_joystick
+#ifndef _fge_joystick
+#define _fge_joystick
 
-void fge_joystick_initialize();
-void fge_joystick_uninitialize();
+typedef void (*joystick_initialize)();
+typedef void (*joystick_uninitialize)();
 
-#endif // fge_joystick
+typedef struct {
+    joystick_initialize          initialize;
+    joystick_uninitialize        uninitialize;
+} fge_fcns_joystick;
+
+extern fge_fcns_joystick fcns_joystick;
+
+#define fge_joystick(fge_function, ...)   (*fcns_joystick.fge_function)(__VA_ARGS__);
+
+#endif // _fge_joystick

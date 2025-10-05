@@ -11,3 +11,8 @@ void fge_sprite_initialize() {
 
 void fge_sprite_uninitialize() {
 }
+
+fge_fcns_sprite fcns_sprite = {
+    fge_sprite_initialize,
+    fge_sprite_uninitialize
+};

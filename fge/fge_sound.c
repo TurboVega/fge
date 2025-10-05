@@ -11,3 +11,8 @@ void fge_sound_initialize() {
 
 void fge_sound_uninitialize() {
 }
+
+fge_fcns_sound fcns_sound = {
+    fge_sound_initialize,
+    fge_sound_uninitialize
+};

@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_mouse
-#define fge_mouse
+#ifndef _fge_mouse
+#define _fge_mouse
 
-void fge_mouse_initialize();
-void fge_mouse_uninitialize();
+typedef void (*mouse_initialize)();
+typedef void (*mouse_uninitialize)();
 
-#endif // fge_mouse
+typedef struct {
+    mouse_initialize          initialize;
+    mouse_uninitialize        uninitialize;
+} fge_fcns_mouse;
+
+extern fge_fcns_mouse fcns_mouse;
+
+#define fge_mouse(fge_function, ...)   (*fcns_mouse.fge_function)(__VA_ARGS__);
+
+#endif // _fge_mouse

@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_key
-#define fge_key
+#ifndef _fge_key
+#define _fge_key
 
-void fge_key_initialize();
-void fge_key_uninitialize();
+typedef void (*key_initialize)();
+typedef void (*key_uninitialize)();
 
-#endif // fge_key
+typedef struct {
+    key_initialize          initialize;
+    key_uninitialize        uninitialize;
+} fge_fcns_key;
+
+extern fge_fcns_key fcns_key;
+
+#define fge_key(fge_function, ...)   (*fcns_key.fge_function)(__VA_ARGS__);
+
+#endif // _fge_key

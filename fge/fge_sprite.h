@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_sprite
-#define fge_sprite
+#ifndef _fge_sprite
+#define _fge_sprite
 
-void fge_sprite_initialize();
-void fge_sprite_uninitialize();
+typedef void (*sprite_initialize)();
+typedef void (*sprite_uninitialize)();
 
-#endif // fge_sprite
+typedef struct {
+    sprite_initialize           initialize;
+    sprite_uninitialize         uninitialize;
+} fge_fcns_sprite;
+
+extern fge_fcns_sprite fcns_sprite;
+
+#define fge_sprite(fge_function, ...)   (*fcns_sprite.fge_function)(__VA_ARGS__);
+
+#endif // _fge_sprite

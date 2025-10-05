@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_memory
-#define fge_memory
+#ifndef _fge_memory
+#define _fge_memory
 
-void fge_memory_initialize();
-void fge_memory_uninitialize();
+typedef void (*memory_initialize)();
+typedef void (*memory_uninitialize)();
 
-#endif // fge_memory
+typedef struct {
+    memory_initialize          initialize;
+    memory_uninitialize        uninitialize;
+} fge_fcns_memory;
+
+extern fge_fcns_memory fcns_memory;
+
+#define fge_memory(fge_function, ...)   (*fcns_memory.fge_function)(__VA_ARGS__);
+
+#endif // _fge_memory

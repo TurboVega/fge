@@ -11,3 +11,8 @@ void fge_joystick_initialize() {
 
 void fge_joystick_uninitialize() {
 }
+
+fge_fcns_joystick fcns_joystick = {
+    fge_joystick_initialize,
+    fge_joystick_uninitialize
+};

@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_sound
-#define fge_sound
+#ifndef _fge_sound
+#define _fge_sound
 
-void fge_sound_initialize();
-void fge_sound_uninitialize();
+typedef void (*sound_initialize)();
+typedef void (*sound_uninitialize)();
 
-#endif // fge_sound
+typedef struct {
+    sound_initialize          initialize;
+    sound_uninitialize        uninitialize;
+} fge_fcns_sound;
+
+extern fge_fcns_sound fcns_sound;
+
+#define fge_sound(fge_function, ...)   (*fcns_sound.fge_function)(__VA_ARGS__);
+
+#endif // _fge_sound

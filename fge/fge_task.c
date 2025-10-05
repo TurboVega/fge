@@ -11,3 +11,8 @@ void fge_task_initialize() {
 
 void fge_task_uninitialize() {
 }
+
+fge_fcns_task fcns_task = {
+    fge_task_initialize,
+    fge_task_uninitialize
+};

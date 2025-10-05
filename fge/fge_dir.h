@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_dir
-#define fge_dir
+#ifndef _fge_dir
+#define _fge_dir
 
-void fge_dir_initialize();
-void fge_dir_uninitialize();
+typedef void (*dir_initialize)();
+typedef void (*dir_uninitialize)();
 
-#endif // fge_dir
+typedef struct {
+    dir_initialize          initialize;
+    dir_uninitialize        uninitialize;
+} fge_fcns_dir;
+
+extern fge_fcns_dir fcns_dir;
+
+#define fge_dir(fge_function, ...)   (*fcns_dir.fge_function)(__VA_ARGS__);
+
+#endif // _fge_dir

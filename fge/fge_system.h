@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_system
-#define fge_system
+#ifndef _fge_system
+#define _fge_system
 
-void fge_system_initialize();
-void fge_system_uninitialize();
+typedef void (*system_initialize)();
+typedef void (*system_uninitialize)();
 
-#endif // fge_system
+typedef struct {
+    system_initialize          initialize;
+    system_uninitialize        uninitialize;
+} fge_fcns_system;
+
+extern fge_fcns_system fcns_system;
+
+#define fge_system(fge_function, ...)   (*fcns_system.fge_function)(__VA_ARGS__);
+
+#endif // _fge_system

@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_line
-#define fge_line
+#ifndef _fge_line
+#define _fge_line
 
-void fge_line_initialize();
-void fge_line_uninitialize();
+typedef void (*line_initialize)();
+typedef void (*line_uninitialize)();
 
-#endif // fge_line
+typedef struct {
+    line_initialize          initialize;
+    line_uninitialize        uninitialize;
+} fge_fcns_line;
+
+extern fge_fcns_line fcns_line;
+
+#define fge_line(fge_function, ...)   (*fcns_line.fge_function)(__VA_ARGS__);
+
+#endif // _fge_line

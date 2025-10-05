@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_color
-#define fge_color
+#ifndef _fge_color
+#define _fge_color
 
-void fge_color_initialize();
-void fge_color_uninitialize();
+typedef void (*color_initialize)();
+typedef void (*color_uninitialize)();
 
-#endif // fge_color
+typedef struct {
+    color_initialize          initialize;
+    color_uninitialize        uninitialize;
+} fge_fcns_color;
+
+extern fge_fcns_color fcns_color;
+
+#define fge_color(fge_function, ...)   (*fcns_color.fge_function)(__VA_ARGS__);
+
+#endif // _fge_color

@@ -11,3 +11,8 @@ void fge_mouse_initialize() {
 
 void fge_mouse_uninitialize() {
 }
+
+fge_fcns_mouse fcns_mouse = {
+    fge_mouse_initialize,
+    fge_mouse_uninitialize
+};

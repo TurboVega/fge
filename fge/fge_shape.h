@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_shape
-#define fge_shape
+#ifndef _fge_shape
+#define _fge_shape
 
-void fge_shape_initialize();
-void fge_shape_uninitialize();
+typedef void (*shape_initialize)();
+typedef void (*shape_uninitialize)();
 
-#endif // fge_shape
+typedef struct {
+    shape_initialize          initialize;
+    shape_uninitialize        uninitialize;
+} fge_fcns_shape;
+
+extern fge_fcns_shape fcns_shape;
+
+#define fge_shape(fge_function, ...)   (*fcns_shape.fge_function)(__VA_ARGS__);
+
+#endif // _fge_shape

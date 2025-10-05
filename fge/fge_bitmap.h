@@ -4,10 +4,19 @@
 //
 // Free for use, but at your own risk. Nothing guaranteed!
 
-#ifndef fge_bitmap
-#define fge_bitmap
+#ifndef _fge_bitmap
+#define _fge_bitmap
 
-void fge_bitmap_initialize();
-void fge_bitmap_uninitialize();
+typedef void (*bitmap_initialize)();
+typedef void (*bitmap_uninitialize)();
 
-#endif // fge_bitmap
+typedef struct {
+    bitmap_initialize          initialize;
+    bitmap_uninitialize        uninitialize;
+} fge_fcns_bitmap;
+
+extern fge_fcns_bitmap fcns_bitmap;
+
+#define fge_bitmap(fge_function, ...)   (*fcns_bitmap.fge_function)(__VA_ARGS__);
+
+#endif // _fge_bitmap

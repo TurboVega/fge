@@ -11,3 +11,8 @@ void fge_line_initialize() {
 
 void fge_line_uninitialize() {
 }
+
+fge_fcns_line fcns_line = {
+    fge_line_initialize,
+    fge_line_uninitialize
+};
