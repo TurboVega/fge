@@ -29,9 +29,7 @@ typedef struct {
     mouse_uninitialize        uninitialize;
 } fge_fcns_mouse;
 
-extern fge_fcns_mouse fcns_mouse;
-
-#define fge_mouse(fge_function, ...)   (*fcns_mouse.fge_function)(__VA_ARGS__);
+extern fge_fcns_mouse fge_mouse;
 ```
 
 Note that there is a type definition for each function, plus a function member based on that type in
@@ -73,6 +71,5 @@ void fge_initialize() {
     ...
 ```
 
-This particular function has no parameters, but if there were some, they would follow the word "initialize" in the call,
+This particular function has no parameters, but if there were some, they would be inside the parentheses, like normal,
 separated by the proper commas.
-
