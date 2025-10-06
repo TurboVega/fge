@@ -12,7 +12,7 @@ void fge_math_initialize() {
 void fge_math_uninitialize() {
 }
 
-fge_fcns_math fcns_math = {
+fge_fcns_math fge_math = {
     fge_math_initialize,
     fge_math_uninitialize
 };

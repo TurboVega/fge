@@ -15,8 +15,6 @@ typedef struct {
     text_uninitialize        uninitialize;
 } fge_fcns_text;
 
-extern fge_fcns_text fcns_text;
-
-#define fge_text(fge_function, ...)   (*fcns_text.fge_function)(__VA_ARGS__);
+extern fge_fcns_text  fge_text;
 
 #endif // _fge_text

@@ -15,8 +15,6 @@ typedef struct {
     hal_uninitialize        uninitialize;
 } fge_fcns_hal;
 
-extern fge_fcns_hal fcns_hal;
-
-#define fge_hal(fge_function, ...)   (*fcns_hal.fge_function)(__VA_ARGS__);
+extern fge_fcns_hal  fge_hal;
 
 #endif // _fge_hal

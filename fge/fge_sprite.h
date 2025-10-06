@@ -15,8 +15,6 @@ typedef struct {
     sprite_uninitialize         uninitialize;
 } fge_fcns_sprite;
 
-extern fge_fcns_sprite fcns_sprite;
-
-#define fge_sprite(fge_function, ...)   (*fcns_sprite.fge_function)(__VA_ARGS__);
+extern fge_fcns_sprite  fge_sprite;
 
 #endif // _fge_sprite

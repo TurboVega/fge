@@ -15,8 +15,6 @@ typedef struct {
     key_uninitialize        uninitialize;
 } fge_fcns_key;
 
-extern fge_fcns_key fcns_key;
-
-#define fge_key(fge_function, ...)   (*fcns_key.fge_function)(__VA_ARGS__);
+extern fge_fcns_key  fge_key;
 
 #endif // _fge_key

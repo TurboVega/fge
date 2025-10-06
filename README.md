@@ -51,7 +51,7 @@ void fge_mouse_initialize() {
 void fge_mouse_uninitialize() {
 }
 
-fge_fcns_mouse fcns_mouse = {
+fge_fcns_mouse fge_mouse = {
     fge_mouse_initialize,
     fge_mouse_uninitialize
 };
@@ -61,15 +61,15 @@ fge_fcns_mouse fcns_mouse = {
 
 The following code comes from "fge.c", which is an overall source file that pulls together the subsystems, relative to
 initialization and uninitialization. Note that this code makes
-use of the "fge_mouse" macro shown above, along with the
+use of the "fge_mouse" jump table shown above, along with the
 function member ("initialize") defined in the jump table.
 This is an indirect function call, which is how it allows for customization.
 
 ```
 void fge_initialize() {
-    fge_hal(initialize);
+    fge_hal.initialize();
     ...
-    fge_mouse(initialize);
+    fge_mouse.initialize();
     ...
 ```
 

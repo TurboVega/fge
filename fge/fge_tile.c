@@ -12,7 +12,7 @@ void fge_tile_initialize() {
 void fge_tile_uninitialize() {
 }
 
-fge_fcns_tile fcns_tile = {
+fge_fcns_tile fge_tile = {
     fge_tile_initialize,
     fge_tile_uninitialize
 };

@@ -15,8 +15,6 @@ typedef struct {
     math_uninitialize        uninitialize;
 } fge_fcns_math;
 
-extern fge_fcns_math fcns_math;
-
-#define fge_math(fge_function, ...)   (*fcns_math.fge_function)(__VA_ARGS__);
+extern fge_fcns_math  fge_math;
 
 #endif // _fge_math

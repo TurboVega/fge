@@ -15,8 +15,6 @@ typedef struct {
     mouse_uninitialize        uninitialize;
 } fge_fcns_mouse;
 
-extern fge_fcns_mouse fcns_mouse;
-
-#define fge_mouse(fge_function, ...)   (*fcns_mouse.fge_function)(__VA_ARGS__);
+extern fge_fcns_mouse  fge_mouse;
 
 #endif // _fge_mouse

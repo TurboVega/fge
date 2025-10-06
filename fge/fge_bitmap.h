@@ -15,8 +15,6 @@ typedef struct {
     bitmap_uninitialize        uninitialize;
 } fge_fcns_bitmap;
 
-extern fge_fcns_bitmap fcns_bitmap;
-
-#define fge_bitmap(fge_function, ...)   (*fcns_bitmap.fge_function)(__VA_ARGS__);
+extern fge_fcns_bitmap  fge_bitmap;
 
 #endif // _fge_bitmap

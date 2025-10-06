@@ -15,8 +15,6 @@ typedef struct {
     system_uninitialize        uninitialize;
 } fge_fcns_system;
 
-extern fge_fcns_system fcns_system;
-
-#define fge_system(fge_function, ...)   (*fcns_system.fge_function)(__VA_ARGS__);
+extern fge_fcns_system  fge_system;
 
 #endif // _fge_system

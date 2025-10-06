@@ -15,8 +15,6 @@ typedef struct {
     tile_uninitialize        uninitialize;
 } fge_fcns_tile;
 
-extern fge_fcns_tile fcns_tile;
-
-#define fge_tile(fge_function, ...)   (*fcns_tile.fge_function)(__VA_ARGS__);
+extern fge_fcns_tile  fge_tile;
 
 #endif // _fge_tile

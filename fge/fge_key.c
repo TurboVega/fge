@@ -12,7 +12,7 @@ void fge_key_initialize() {
 void fge_key_uninitialize() {
 }
 
-fge_fcns_key fcns_key = {
+fge_fcns_key fge_key = {
     fge_key_initialize,
     fge_key_uninitialize
 };

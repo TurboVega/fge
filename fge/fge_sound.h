@@ -15,8 +15,6 @@ typedef struct {
     sound_uninitialize        uninitialize;
 } fge_fcns_sound;
 
-extern fge_fcns_sound fcns_sound;
-
-#define fge_sound(fge_function, ...)   (*fcns_sound.fge_function)(__VA_ARGS__);
+extern fge_fcns_sound  fge_sound;
 
 #endif // _fge_sound

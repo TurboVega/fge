@@ -12,7 +12,7 @@ void fge_system_initialize() {
 void fge_system_uninitialize() {
 }
 
-fge_fcns_system fcns_system = {
+fge_fcns_system fge_system = {
     fge_system_initialize,
     fge_system_uninitialize
 };

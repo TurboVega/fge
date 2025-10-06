@@ -12,7 +12,7 @@ void fge_msg_initialize() {
 void fge_msg_uninitialize() {
 }
 
-fge_fcns_msg fcns_msg = {
+fge_fcns_msg fge_msg = {
     fge_msg_initialize,
     fge_msg_uninitialize
 };

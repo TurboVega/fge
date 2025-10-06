@@ -15,8 +15,6 @@ typedef struct {
     path_uninitialize        uninitialize;
 } fge_fcns_path;
 
-extern fge_fcns_path fcns_path;
-
-#define fge_path(fge_function, ...)   (*fcns_path.fge_function)(__VA_ARGS__);
+extern fge_fcns_path  fge_path;
 
 #endif // _fge_path

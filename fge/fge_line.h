@@ -15,8 +15,6 @@ typedef struct {
     line_uninitialize        uninitialize;
 } fge_fcns_line;
 
-extern fge_fcns_line fcns_line;
-
-#define fge_line(fge_function, ...)   (*fcns_line.fge_function)(__VA_ARGS__);
+extern fge_fcns_line  fge_line;
 
 #endif // _fge_line

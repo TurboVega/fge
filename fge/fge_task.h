@@ -7,16 +7,29 @@
 #ifndef _fge_task
 #define _fge_task
 
-typedef void (*task_initialize)();
-typedef void (*task_uninitialize)();
+#pragma pack(push, 1)
+
+#include "fge_types.h"
 
 typedef struct {
-    task_initialize          initialize;
-    task_uninitialize        uninitialize;
+    uint8_t     id;
+    char        name[FGE_MAX_TASK_NAME_SIZE];
+} FgeTask;
+
+#pragma pack(pop)
+
+typedef void (*task_initialize)();
+typedef void (*task_uninitialize)();
+typedef void (*task_create)(FgeTask* task, uint8_t id, const char* name);
+
+
+typedef struct {
+    task_initialize         initialize;
+    task_uninitialize       uninitialize;
+    task_create             create;
+
 } fge_fcns_task;
 
-extern fge_fcns_task fcns_task;
-
-#define fge_task(fge_function, ...)   (*fcns_task.fge_function)(__VA_ARGS__);
+extern fge_fcns_task fge_task;
 
 #endif // _fge_task

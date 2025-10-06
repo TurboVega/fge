@@ -15,8 +15,6 @@ typedef struct {
     app_uninitialize        uninitialize;
 } fge_fcns_app;
 
-extern fge_fcns_app fcns_app;
-
-#define fge_app(fge_function, ...)   (*fcns_app.fge_function)(__VA_ARGS__);
+extern fge_fcns_app  fge_app;
 
 #endif // _fge_app

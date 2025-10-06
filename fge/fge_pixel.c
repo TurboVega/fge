@@ -12,7 +12,7 @@ void fge_pixel_initialize() {
 void fge_pixel_uninitialize() {
 }
 
-fge_fcns_pixel fcns_pixel = {
+fge_fcns_pixel fge_pixel = {
     fge_pixel_initialize,
     fge_pixel_uninitialize
 };

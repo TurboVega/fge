@@ -15,8 +15,6 @@ typedef struct {
     hit_uninitialize        uninitialize;
 } fge_fcns_hit;
 
-extern fge_fcns_hit fcns_hit;
-
-#define fge_hit(fge_function, ...)   (*fcns_hit.fge_function)(__VA_ARGS__);
+extern fge_fcns_hit  fge_hit;
 
 #endif // _fge_hit

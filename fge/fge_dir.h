@@ -15,8 +15,6 @@ typedef struct {
     dir_uninitialize        uninitialize;
 } fge_fcns_dir;
 
-extern fge_fcns_dir fcns_dir;
-
-#define fge_dir(fge_function, ...)   (*fcns_dir.fge_function)(__VA_ARGS__);
+extern fge_fcns_dir  fge_dir;
 
 #endif // _fge_dir

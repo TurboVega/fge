@@ -15,8 +15,6 @@ typedef struct {
     pixel_uninitialize        uninitialize;
 } fge_fcns_pixel;
 
-extern fge_fcns_pixel fcns_pixel;
-
-#define fge_pixel(fge_function, ...)   (*fcns_pixel.fge_function)(__VA_ARGS__);
+extern fge_fcns_pixel  fge_pixel;
 
 #endif // _fge_pixel

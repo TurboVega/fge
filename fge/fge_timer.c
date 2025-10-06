@@ -12,7 +12,7 @@ void fge_timer_initialize() {
 void fge_timer_uninitialize() {
 }
 
-fge_fcns_timer fcns_timer = {
+fge_fcns_timer fge_timer = {
     fge_timer_initialize,
     fge_timer_uninitialize
 };

@@ -15,8 +15,6 @@ typedef struct {
     memory_uninitialize        uninitialize;
 } fge_fcns_memory;
 
-extern fge_fcns_memory fcns_memory;
-
-#define fge_memory(fge_function, ...)   (*fcns_memory.fge_function)(__VA_ARGS__);
+extern fge_fcns_memory  fge_memory;
 
 #endif // _fge_memory

@@ -12,7 +12,7 @@ void fge_memory_initialize() {
 void fge_memory_uninitialize() {
 }
 
-fge_fcns_memory fcns_memory = {
+fge_fcns_memory fge_memory = {
     fge_memory_initialize,
     fge_memory_uninitialize
 };

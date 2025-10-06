@@ -12,7 +12,7 @@ void fge_path_initialize() {
 void fge_path_uninitialize() {
 }
 
-fge_fcns_path fcns_path = {
+fge_fcns_path fge_path = {
     fge_path_initialize,
     fge_path_uninitialize
 };

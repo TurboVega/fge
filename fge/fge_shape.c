@@ -12,7 +12,7 @@ void fge_shape_initialize() {
 void fge_shape_uninitialize() {
 }
 
-fge_fcns_shape fcns_shape = {
+fge_fcns_shape fge_shape = {
     fge_shape_initialize,
     fge_shape_uninitialize
 };

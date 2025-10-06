@@ -15,8 +15,6 @@ typedef struct {
     shape_uninitialize        uninitialize;
 } fge_fcns_shape;
 
-extern fge_fcns_shape fcns_shape;
-
-#define fge_shape(fge_function, ...)   (*fcns_shape.fge_function)(__VA_ARGS__);
+extern fge_fcns_shape  fge_shape;
 
 #endif // _fge_shape

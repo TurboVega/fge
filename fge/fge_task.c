@@ -12,7 +12,12 @@ void fge_task_initialize() {
 void fge_task_uninitialize() {
 }
 
-fge_fcns_task fcns_task = {
+void fge_task_create(FgeTask* task, uint8_t id, const char* name) {
+
+}
+
+fge_fcns_task fge_task = {
     fge_task_initialize,
-    fge_task_uninitialize
+    fge_task_uninitialize,
+    fge_task_create
 };

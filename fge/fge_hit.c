@@ -12,7 +12,7 @@ void fge_hit_initialize() {
 void fge_hit_uninitialize() {
 }
 
-fge_fcns_hit fcns_hit = {
+fge_fcns_hit fge_hit = {
     fge_hit_initialize,
     fge_hit_uninitialize
 };

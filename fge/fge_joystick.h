@@ -15,8 +15,6 @@ typedef struct {
     joystick_uninitialize        uninitialize;
 } fge_fcns_joystick;
 
-extern fge_fcns_joystick fcns_joystick;
-
-#define fge_joystick(fge_function, ...)   (*fcns_joystick.fge_function)(__VA_ARGS__);
+extern fge_fcns_joystick  fge_joystick;
 
 #endif // _fge_joystick

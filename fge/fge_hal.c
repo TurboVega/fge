@@ -12,7 +12,7 @@ void fge_hal_initialize() {
 void fge_hal_uninitialize() {
 }
 
-fge_fcns_hal fcns_hal = {
+fge_fcns_hal fge_hal = {
     fge_hal_initialize,
     fge_hal_uninitialize
 };

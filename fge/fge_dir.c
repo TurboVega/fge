@@ -12,7 +12,7 @@ void fge_dir_initialize() {
 void fge_dir_uninitialize() {
 }
 
-fge_fcns_dir fcns_dir = {
+fge_fcns_dir fge_dir = {
     fge_dir_initialize,
     fge_dir_uninitialize
 };

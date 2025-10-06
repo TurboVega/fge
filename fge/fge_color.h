@@ -15,8 +15,6 @@ typedef struct {
     color_uninitialize        uninitialize;
 } fge_fcns_color;
 
-extern fge_fcns_color fcns_color;
-
-#define fge_color(fge_function, ...)   (*fcns_color.fge_function)(__VA_ARGS__);
+extern fge_fcns_color  fge_color;
 
 #endif // _fge_color

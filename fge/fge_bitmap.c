@@ -12,7 +12,7 @@ void fge_bitmap_initialize() {
 void fge_bitmap_uninitialize() {
 }
 
-fge_fcns_bitmap fcns_bitmap = {
+fge_fcns_bitmap fge_bitmap = {
     fge_bitmap_initialize,
     fge_bitmap_uninitialize
 };

@@ -15,8 +15,6 @@ typedef struct {
     timer_uninitialize        uninitialize;
 } fge_fcns_timer;
 
-extern fge_fcns_timer fcns_timer;
-
-#define fge_timer(fge_function, ...)   (*fcns_timer.fge_function)(__VA_ARGS__);
+extern fge_fcns_timer  fge_timer;
 
 #endif // _fge_timer

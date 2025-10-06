@@ -15,8 +15,6 @@ typedef struct {
     msg_uninitialize        uninitialize;
 } fge_fcns_msg;
 
-extern fge_fcns_msg fcns_msg;
-
-#define fge_msg(fge_function, ...)   (*fcns_msg.fge_function)(__VA_ARGS__);
+extern fge_fcns_msg  fge_msg;
 
 #endif // _fge_msg

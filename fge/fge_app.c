@@ -12,7 +12,7 @@ void fge_app_initialize() {
 void fge_app_uninitialize() {
 }
 
-fge_fcns_app fcns_app = {
+fge_fcns_app fge_app = {
     fge_app_initialize,
     fge_app_uninitialize
 };
