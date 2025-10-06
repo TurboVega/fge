@@ -12,4 +12,7 @@
 #define FGE_MAX_TASK_NAME_LEN   15
 #define FGE_MAX_TASK_NAME_SIZE  (FGE_MAX_TASK_NAME_LEN + 1)
 
+#define FGE_MAX_MSG_PARAMS      4
+#define FGE_MAX_MESSAGES        32
+
 #endif // _fge_types
