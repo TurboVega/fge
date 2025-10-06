@@ -9,10 +9,12 @@
 
 typedef void (*memory_initialize)();
 typedef void (*memory_uninitialize)();
+typedef void (*memory_clear)(void* dst, int size);
 
 typedef struct {
-    memory_initialize          initialize;
-    memory_uninitialize        uninitialize;
+    memory_initialize       initialize;
+    memory_uninitialize     uninitialize;
+    memory_clear            clear;
 } fge_fcns_memory;
 
 extern fge_fcns_memory  fge_memory;

@@ -9,23 +9,16 @@
 
 #include "fge_types.h"
 
-#pragma pack(push, 1)
+#define FGE_SYS_MSG_TYPE_TERMINATE  0   // tells a task that it is ending
+#define FGE_SYS_MSG_TYPE_INITIATE   1   // tells a task that it is starting
 
-typedef union tagFgeMsgParam {
-    int32_t     i32;
-    int16_t     i16[2];
-    int8_t      i8[4];
-    uint32_t    u32;
-    uint16_t    u16[2];
-    uint8_t     u8[4];
-    char        ch[4];
-} FgeMsgParam;
+#pragma pack(push, 1)
 
 typedef struct tagFgeMsg {
     uint8_t     fromTaskId;
     uint8_t     toTaskId;
     uint8_t     type;
-    FgeMsgParam param[FGE_MAX_MSG_PARAMS];
+    FgeTypeUnion param[FGE_MAX_MSG_PARAMS];
     struct tagFgeMsg* next;
 } FgeMsg;
 
@@ -33,11 +26,21 @@ typedef struct tagFgeMsg {
 
 typedef void (*msg_initialize)();
 typedef void (*msg_uninitialize)();
+
+// Allocate a message, specifying its originating task.
 typedef FgeMsg* (*msg_alloc_from)(uint8_t fromTaskId, uint8_t toTaskId, uint8_t type);
+
+// Allocate a message, assuming that its originating task is the current task.
 typedef FgeMsg* (*msg_alloc)(uint8_t toTaskId, uint8_t type);
+
+// Deallocate a message (return it to the free pool).
 typedef void (*msg_free)(FgeMsg* msg);
+
+// Post a message to the app message queue.
 typedef void (*msg_post)(FgeMsg* msg);
-typedef FgeMsgParam (*msg_send)(FgeMsg* msg);
+
+// Send a message immediately, bypassing the queue.
+typedef FgeTypeUnion (*msg_send)(FgeMsg* msg);
 
 typedef struct {
     msg_initialize          initialize;

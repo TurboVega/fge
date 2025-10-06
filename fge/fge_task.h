@@ -12,22 +12,33 @@
 #include "fge_types.h"
 #include "fge_msg.h"
 
-typedef void (*task_handler)(FgeMsg* msg);
+#define FGE_TASK_STATE_DEAD         0
+#define FGE_TASK_STATE_ACTIVE       1
+#define FGE_TASK_STATE_SUSPENDED    2
+
+// This represents a function that handles (processes) a message
+// that was posted to the app queue and processed asynchronously.
+typedef void (*task_handle)(FgeMsg* msg);
+
+// This represents a function that receives (processes) a message
+// that was sent to a particular task synchronously, such that the
+// caller might obtain some kind of result from the callee.
+typedef FgeTypeUnion (*task_receive)(FgeMsg* msg);
 
 typedef struct tagFgeTask {
-    uint8_t     id;
-    uint8_t     state;
-    char        name[FGE_MAX_TASK_NAME_SIZE];
-    task_handler handler;
+    uint8_t         id;
+    uint8_t         state;
+    char            name[FGE_MAX_TASK_NAME_SIZE];
+    task_handle     handler;
+    task_receive    receive;
     struct tagFgeTask* next;
-    struct tagFgeTask* prev;
 } FgeTask;
 
 #pragma pack(pop)
 
 typedef void (*task_initialize)();
 typedef void (*task_uninitialize)();
-typedef void (*task_create)(FgeTask* task, uint8_t id, const char* name);
+typedef void (*task_start)(FgeTask* task);
 typedef FgeTask* (*task_find)(uint8_t id);
 typedef FgeTask* (*task_current)();
 typedef void (*task_suspend)(FgeTask* task);
@@ -37,9 +48,12 @@ typedef void (*task_delete)(FgeTask* task);
 typedef struct {
     task_initialize         initialize;
     task_uninitialize       uninitialize;
-    task_create             create;
+    task_start              start;
     task_find               find;
-
+    task_current            current;
+    task_suspend            suspend;
+    task_resume             resume;
+    task_delete             delete;
 } fge_fcns_task;
 
 extern fge_fcns_task fge_task;

@@ -1,5 +1,5 @@
 // Compile with:
-// gcc sandbox.c ./fge/*.c -o sandbox -lglfw -lGL -lX11 -lXrandr -lXi -lm
+// clear; gcc sandbox.c ./fge/*.c -o sandbox -lglfw -lGL -lX11 -lXrandr -lXi -lm
 
 #include <GLFW/glfw3.h>
 #include <stdio.h>
