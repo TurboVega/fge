@@ -5,17 +5,20 @@
 // Free for use, but at your own risk. Nothing guaranteed!
 
 #include "fge_task.h"
+#include <stdio.h>
 
 static FgeTask* gActiveHead;
 static FgeTask* gInactiveHead;
 static FgeTask* gCurrentTask;
 
 void fge_task_initialize() {
+    printf("fge_task_initialize\n");
     gActiveHead = FGE_NULL;
     gInactiveHead = FGE_NULL;
 }
 
 void fge_task_uninitialize() {
+    printf("fge_task_uninitialize\n");
     while (gActiveHead) {
         FgeMsg msg;
         msg.toTaskId = gActiveHead->id;
@@ -34,15 +37,19 @@ void fge_task_uninitialize() {
 }
 
 void fge_task_start(FgeTask* task) {
+    printf("fge_task_start\n");
     task->state = FGE_TASK_STATE_ACTIVE;
     task->next = gActiveHead;
     gActiveHead = task;
+    printf("started %s\n", task->name);
 }
 
 FgeTask* fge_task_find(uint8_t id) {
+    printf("fge_task_find %hu\n", id);
     FgeTask* task = gActiveHead;
     while (task) {
         if (task->id == id) {
+            printf("found %s\n", task->name);
             break;
         } else {
             task = task->next;
@@ -52,10 +59,12 @@ FgeTask* fge_task_find(uint8_t id) {
 }
 
 FgeTask* fge_task_current() {
+    printf("fge_task_current\n");
     return gCurrentTask;
 }
 
 void fge_task_suspend(FgeTask* task) {
+    printf("fge_task_suspend\n");
     if (task == gActiveHead) {
         gActiveHead = task->next;
         task->state = FGE_TASK_STATE_SUSPENDED;
@@ -78,6 +87,7 @@ void fge_task_suspend(FgeTask* task) {
 }
 
 void fge_task_resume(FgeTask* task) {
+    printf("fge_task_resume\n");
     if (task == gInactiveHead) {
         gInactiveHead = task->next;
         task->state = FGE_TASK_STATE_ACTIVE;
@@ -100,6 +110,7 @@ void fge_task_resume(FgeTask* task) {
 }
 
 void fge_task_delete(FgeTask* task) {
+    printf("fge_task_delete\n");
     fge_task_suspend(task);
     if (task == gInactiveHead) {
         gInactiveHead = task->next;
@@ -126,6 +137,10 @@ void fge_task_delete(FgeTask* task) {
     }
 }
 
+void fge_task_activate(FgeTask* task) {
+    gCurrentTask = task;
+}
+
 fge_fcns_task fge_task = {
     fge_task_initialize,
     fge_task_uninitialize,
@@ -134,5 +149,6 @@ fge_fcns_task fge_task = {
     fge_task_current,
     fge_task_suspend,
     fge_task_resume,
-    fge_task_delete
+    fge_task_delete,
+    fge_task_activate
 };

@@ -39,6 +39,9 @@ typedef void (*msg_free)(FgeMsg* msg);
 // Post a message to the app message queue.
 typedef void (*msg_post)(FgeMsg* msg);
 
+// Get a message from the app message queue, if any exist.
+typedef FgeMsg* (*msg_get)();
+
 // Send a message immediately, bypassing the queue.
 typedef FgeTypeUnion (*msg_send)(FgeMsg* msg);
 
@@ -50,6 +53,7 @@ typedef struct {
     msg_free                free;
     msg_post                post;
     msg_send                send;
+    msg_get                 get;
 } fge_fcns_msg;
 
 extern fge_fcns_msg  fge_msg;

@@ -29,7 +29,7 @@ typedef struct tagFgeTask {
     uint8_t         id;
     uint8_t         state;
     char            name[FGE_MAX_TASK_NAME_SIZE];
-    task_handle     handler;
+    task_handle     handle;
     task_receive    receive;
     struct tagFgeTask* next;
 } FgeTask;
@@ -44,6 +44,7 @@ typedef FgeTask* (*task_current)();
 typedef void (*task_suspend)(FgeTask* task);
 typedef void (*task_resume)(FgeTask* task);
 typedef void (*task_delete)(FgeTask* task);
+typedef void (*task_activate)(FgeTask* task);
 
 typedef struct {
     task_initialize         initialize;
@@ -54,6 +55,7 @@ typedef struct {
     task_suspend            suspend;
     task_resume             resume;
     task_delete             delete;
+    task_activate           activate;
 } fge_fcns_task;
 
 extern fge_fcns_task fge_task;
